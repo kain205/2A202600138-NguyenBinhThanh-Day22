@@ -1,0 +1,16 @@
+# Workshop 1: Rà soát claim marketing (Synapsy)
+
+**Tình huống:** Rà soát mọi câu marketing theo 3 mức độ (A - Chứng minh được, B - Chưa chứng minh nhưng có thể, C - Thổi phồng) và viết lại phiên bản trung thực nhằm tránh rủi ro pháp lý (Điều 198) và bảo vệ "Trust Gap" của sinh viên Y khoa.
+
+| Câu gốc (Marketing Claim) | Mức | Evidence (Bằng chứng / Rủi ro hiện tại) | Honest version (Phiên bản trung thực) |
+| :--- | :---: | :--- | :--- |
+| "Thuật toán AI độc quyền bóc tách file PDF Y khoa chính xác tuyệt đối." | **Mức C** | Đã bỏ công cụ nội bộ, hiện đang gọi API public Native Vision của Claude/Gemini. Không có thuật toán lõi độc quyền về parse PDF. | "Hệ thống tích hợp các mô hình AI tiên tiến (Claude/Gemini) để xử lý trực tiếp giáo trình PDF của bạn." |
+| "Chatbot thông minh như bác sĩ, tư vấn và chẩn đoán mọi ca lâm sàng." | **Mức C** | Rủi ro pháp lý chí mạng (Medical Liability - Risk 5). AI bị "sandboxed", chỉ được trả lời dựa trên nội dung text của file PDF upload, không được khuyên y tế. | "Tính năng Q&A tài liệu: Giải thích sâu các khái niệm, giới hạn nghiêm ngặt trong phạm vi giáo trình bạn cung cấp." |
+| "Hệ thống Spaced Repetition (SRS) giúp nhớ lâu kiến thức y khoa trọn đời." | **Mức C** | Tính năng SRS đã bị đẩy sang LATER (Out-of-scope của MVP). Sản phẩm hiện tại tập trung vào giai đoạn nước rút 48h. | "Chẩn đoán điểm mù và tạo lộ trình ôn tập cấp tốc, giúp bạn lấp lỗ hổng ngay trong đêm trước kỳ thi." |
+| "Tiết kiệm 80% thời gian ôn thi (từ 3-5 tiếng xuống còn 5 phút)." | **Mức B** | AI tạo thẻ flashcard xong trong < 5 phút, nhưng chưa có số liệu đo lường user thực tế có giảm tổng thời gian học hay không (cần đợi đợt 50 beta users). | "Tiết kiệm hàng giờ tự làm flashcard thủ công, AI tự động sinh bộ thẻ ôn tập chỉ trong vài phút." |
+| "Tự động sinh flashcard mà AI không bao giờ bịa đặt (0% Hallucination)." | **Mức C** | Bản chất LLM (Probabilistic) luôn có tỷ lệ Hallucination. Với mức zero-tolerance của dân Y, hứa hẹn 0% là tự sát. | "Tự động sinh flashcard đi kèm tính năng 'Xem Nguồn' chia đôi màn hình, cho phép bạn tự kiểm chứng từng dòng với PDF gốc." |
+| "Kho dữ liệu Y khoa khổng lồ nhất Việt Nam." | **Mức B** | Tính năng Global Knowledge Cache (băm file ID) giúp tái sử dụng file rất mạnh, nhưng ở Pre-launch chưa có data tích lũy. Cần sinh viên upload để quay bánh đà. | "Hệ thống lưu trữ bộ đệm thông minh, tự động tăng tốc độ xử lý cho các giáo trình được cộng đồng sinh viên Y khoa sử dụng nhiều." |
+| "Mỗi thẻ flashcard đều trỏ chính xác về trang và dòng của file gốc." | **Mức A** | Tính năng F4-lite (Source Traceability) lấy metadata natively từ LLM và giao diện chia đôi màn hình (Split-screen) đã code xong và pass test. | "Mọi thẻ flashcard đều có thể trỏ về chính xác trang và dòng của file gốc để bạn dễ dàng đối chiếu." |
+
+---
+**Tự kiểm tra (Bước 4):** Trang giới thiệu sau khi điều chỉnh không còn hứa hẹn một AI "hoàn hảo 100%". Thay vào đó, chúng ta đánh thẳng vào Insight cốt lõi: **Sinh viên Y cần sự kiểm chứng (Traceability)** và **Tiết kiệm thời gian tự tạo Anki thủ công**. Phiên bản "Honest" này loại bỏ hoàn toàn nguy cơ kiện tụng y tế, che đi rào cản kỹ thuật của LLM, và vẫn giữ được sức nặng để convert users (nhờ tính năng chia đôi màn hình độc đáo).
